@@ -1,6 +1,6 @@
 const db = require("../config")
 const {hash, compare, hashSync} = require('bcrypt')
-const {createToken} = require('../middleware/AuthenticateUser')
+const {createToken} = require('../middleware/AuthonticateUser')
 class Users{
     fetchUsers(req, res) {
         const query = `
@@ -50,7 +50,7 @@ class Users{
         SET ?;
         `
         db.query(query, [data],(err) => {
-            if (err) throw
+            if (err) throw err
             let token = createToken(Users)
             res.cookie("Actual.User", token,
             {
