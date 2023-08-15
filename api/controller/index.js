@@ -41,6 +41,14 @@ routes.delete('/user/: id', bodyParser.json(),
     })
     
 
+//=====login=====
+
+routes.post('/login',
+bodyParser.json(), (req, res)=>{
+    users.login(req, res)
+})
+
+
 
 
 module.exports = {
