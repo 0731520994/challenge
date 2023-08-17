@@ -1,4 +1,4 @@
-const db = require('../api/config');
+const db = require('../config');
 
 class Orders {
     fetchOrders(req, res) {
@@ -63,12 +63,6 @@ class Orders {
     }
 
 }
-
-
-
-
-
-
 
 
 

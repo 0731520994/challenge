@@ -1,4 +1,4 @@
-const db = require('../api/config');
+const db = require('../config');
 class Books{
     fetchBooks(req, res) {
         const query = `

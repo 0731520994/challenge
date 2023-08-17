@@ -1,12 +1,11 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const {verifyToken} = require ('../middleware/AuthonticateUser')
 const routes = express.Router()
 
+//Import  all model's objects
 
-
-//Export all objects
-
-const {users} = require('../model')
+const {users} = require ('../model')
 
 //======user's router====
 routes.get('/users', (req,res)=> {

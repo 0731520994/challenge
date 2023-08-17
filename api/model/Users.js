@@ -1,4 +1,4 @@
-const db = require("../api/config")
+const db = require("../config")
 const {hash, compare, hashSync} = require('bcrypt')
 const {createToken} = require('../middleware/AuthonticateUser')
 class Users{
@@ -97,22 +97,29 @@ class Users{
         `
         db.query(query, [data],(err) => {
             if (err) throw err
-            let token = createToken(Users)
+            let token = createToken(user)
             res.cookie("Actual.User", token,
             {
                 maxAge: 360000,
                 httpOnly: true
             });
             res.json({
+                status: res.statusCode,
                 msg: "You are now registered."
             })
         })
     }
     updateUser(req, res) {
-        const query =`
+        const data = req.body
+        if (data.userPass) {
+            data.userPass = 
+            hashSync(data.userPass, 15)
+        }
+
+        const query = `
         UPDATE Users
         SET?
-        WHERE UserID = ?;
+        WHERE UserID = ?
         `
         db.query(query,
             [req.body, req.params.id],

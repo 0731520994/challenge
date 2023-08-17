@@ -5,4 +5,7 @@ const BookAuthors = require('./BookAuthor')
 
 module.exports = {
     users: new Users(),
+    books: new Books(),
+    orders: new Orders(),
+    BookAuthors: new BookAuthors()
 }
