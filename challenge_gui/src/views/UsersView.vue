@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div v-else class="row">
             <spinnerComp/>
         </div>
     </div>

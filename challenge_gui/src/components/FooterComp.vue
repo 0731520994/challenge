@@ -4,7 +4,7 @@
         <p class="lead">Copyright &copy;{{ cyear }}</p>
       </div>
     </div>
-  </template>
+</template>
   
   <script>
   export default {
